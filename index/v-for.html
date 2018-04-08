@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>v-for</h1>
+<hr>
+
+<div id="app">
+    <ul>
+        <li v-for="item in items">
+            {{item}}
+        </li>
+    </ul>
+
+    <ul>
+        <li v-for="(student, index) in sortStudent">
+            {{index}}: {{student.name}} → {{student.age}}
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    var arr = ['学习', '工作', '健身', '烹饪', '英语'];
+    var arrSort = [2,5,1,6,24];
+    var students = [
+        {'name': 'Alisa', 'age': 28},
+        {'name': 'Riva', 'age': 22},
+        {'name': 'Sophia', 'age': 26},
+        {'name': 'Icey', 'age': 24}
+    ];
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            items: arr,
+            arrSort: arrSort,
+            students: students
+        },
+        computed: {
+            sortItems: function() {
+                return this.arrSort.sort(sortNum);
+            },
+            sortStudent:function(){
+                return sortByKey(this.students, 'age');
+            }
+        }
+
+    });
+    function sortNum(a,b){
+        return a-b;
+    }
+
+    //数组对象方法排序:
+    function sortByKey(array,key){
+        return array.sort(function(a,b){
+            var x = a[key];
+            var y = b[key];
+            return ((x<y) ? -1 : ((x>y) ? 1 : 0 ));
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if_v-else_v-show</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>v-if v-else v-show</h1>
+<hr>
+
+<div id="app">
+    <p v-if="isLogin">
+        {{message}}
+    </p>
+    <p v-else>
+        {{message2}}
+    </p>
+    <p v-show:seen="true">
+        {{seen}}
+    </p>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isLogin: true,
+            message: '您好，Anastasia，您已登录！',
+            seen: '你能看见我了',
+            message2: '请先登录！'
+        }
+    })
+</script>
+
+</body>
+</html>

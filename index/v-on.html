@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    得分： <span>{{score}}</span>
+    <input type="button" value="加分" v-on:click="addScore">
+    <input type="button" value="减分" @click="descScore">
+    <input type="text" v-on:keyup.enter="onEnter" v-model="enterNum">
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            score: 0
+        },
+        methods: {
+            addScore: function(){
+                this.score ++;
+            },
+            descScore: function(){
+                if(this.score > 0){
+                    this.score --;
+                }
+
+            },
+            onEnter: function(){
+                this.score += parseInt(this.enterNum)
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

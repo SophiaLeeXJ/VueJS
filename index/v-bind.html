@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue事件绑定</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <span v-bind:title="message" v-if="seen" v-on:click="pushData">
+        将鼠标悬停在此处，你将会看到惊喜！
+    </span>
+
+    <ol>
+        <li v-for="todo in plan">
+            {{todo.text}}
+        </li>
+    </ol>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '页面加载于' + new Date().toLocaleString(),
+            seen: true,
+            plan: [
+                {text: '学习JavaScript'},
+                {text: '学习vue'},
+                {text: '前后端数据交互沟通与讨论'}
+            ]
+        },
+        methods: {
+            pushData: function(){
+                this.plan.push({text: 'lianxikouyu!'})
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello VueJS</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<!-- 数据与DOM建立了关联 -->
+<div id="app">
+    {{ message }}
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello VueJS！'
+        }
+    })
+</script>
+
+</body>
+</html>
