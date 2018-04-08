@@ -8,7 +8,7 @@
 <body>
 
 <div id="app">
-    <p>{{message}}</p>
+    <p v-if="seen">{{message}}</p>
     <p><input type="text" v-model="message"></p>
 </div>
 
@@ -16,7 +16,8 @@
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Hello World!'
+            message: 'Hello World!',
+            seen: true
         }
     })
 </script>
